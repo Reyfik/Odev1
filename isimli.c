@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
-//Deneme
+
 void menu();
 void it(int sayi);
 void hesapmakinesimenu();
@@ -21,20 +21,39 @@ void yildiz(int buyukluk);
 void daire(int buyukluk);
 void kare(int buyukluk);
 void don();
-void cikis_goruntu();
+
+void cikis_ana();
 void kare1();
 void kumsaati1();
 void dikucgen1();
 void yildiz1();
-//
+void baklava1();
+
+void hesapmakinesi();
+void hesapmakinesi_menusu();
+
+void toplam();
+void cikar();
+void bol();
+void carp();
+void ebob();
+void ekok();
+void n_ussu();
+void faiz();
+void faktoriyel();
+void karekok_bulma();
+//Çýkýþlar
+void cikis_goruntu();
+void cikis_sekil();
+void cikis_hesap();
+
+
 int j,a,i,b,c;
 char cikis;
-//
+
 main(){
 	menu();
 }
-
-
 void menu(){
     system("color E"); 
     setlocale(LC_ALL,"unicode");
@@ -119,14 +138,16 @@ void menu(){
     if(karakter[0] == 'c' || karakter[0] == 'C')
     {
     	system("cls");
-    	cikis_goruntu();
+    	exit(0);
 	}
 	else {
     int sayi = atoi(karakter);
     switch(sayi)
     {
-    	case 1:
-    		printf("Hey everybody is coder.!");
+    	case 1:{	
+    		system("cls");
+			hesapmakinesi_menusu();	
+			}
     		break;
     	case 2:
     		printf("Python daydým %20 deyim ...");
@@ -242,23 +263,24 @@ void sekil_menu(){
     char karakter[2];
     scanf("%s",&karakter);
     int sayi = atoi(karakter);
-    if(karakter[0] == 'c' || karakter[0] == 'C') cikis_goruntu();
-	switch(sayi)
-    {
+    if(karakter[0] == 'c' || karakter[0] == 'C') cikis_ana();
+	switch(sayi)   {
     	case 1:
 	kare1();    	
 		break;
     	case 2:
-    		printf("Python daydým %20 deyim ...");
+    		yildiz1();
     		break;
     	case 3:
-    		printf("Ayýp Birþey  ... ");
+    		kumsaati1();
     		break;
     	case 4:
-    		sekil_menu();
+    		baklava1();
+    		break;
+    	case 5:
+    		dikucgen1();
     		break;
     	default:
-    		
     		break;
 	}    
 }
@@ -289,29 +311,34 @@ int c1=0;
 		for(a = 0;a<buyuk;a++)	printf("%c",yildiz[a]);
 	printf("\n");
 	}
+	setlocale(LC_ALL,"Turkish");
 	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	setlocale(LC_ALL,"C");
     cikis=getch();
-    if(cikis=='C' || cikis=='c'){cikis_goruntu();}
-    else{system("cls");kumsaati(5);}
+    if(cikis=='C' || cikis=='c'){cikis_sekil();}
+    else{system("cls");kumsaati1();}
 }
 void dikucgen(int buyukluk){
+	system("cls");
     char sol[buyukluk];
     for(i = 0;i< buyukluk;i++){
         sol[i] = '*';   
         }
     for(j = 0;j < buyukluk;j++)
     {
-        sol[j] = 160;
+        sol[j] = ' ';
        for(i = 0;i< buyukluk;i++)
        {
        	printf("%c",sol[i]);
 	   }
 	   printf("\n");
     }
+    setlocale(LC_ALL,"Turkish");
     printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+    setlocale(LC_ALL,"C");
     cikis=getch();
-    if(cikis=='C' || cikis=='c'){cikis_goruntu();}
-    else{system("cls");dikucgen(5);}
+    if(cikis=='C' || cikis=='c'){cikis_sekil();}
+    else{system("cls");dikucgen1();}
 }
 void baklava(int buyuk){
 //Üst Kýsým
@@ -337,10 +364,12 @@ void baklava(int buyuk){
 		for(b = 0;b<buyuk;b++) 	printf("%c",tersy[b]); // tersy
 	printf("\n");
 	}
+	setlocale(LC_ALL,"Turkish");
 	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	setlocale(LC_ALL,"C");
     cikis=getch();
-    if(cikis=='C' || cikis=='c'){cikis_goruntu();}
-    else{system("cls");baklava(5);}
+    if(cikis=='C' || cikis=='c'){cikis_sekil();}
+    else{system("cls");baklava1();}
 }
 void yildiz(int buyukluk){
 
@@ -451,13 +480,14 @@ void kare(int buyukluk){
 	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
 	setlocale(LC_ALL,"C");
     cikis=getch();
-    if(cikis=='C' || cikis=='c'){cikis_goruntu();}
-    else{system("cls");kare(5);}
+    if(cikis=='C' || cikis=='c'){cikis_sekil();}
+    else{system("cls");kare1();}
 }
 void don(){
 	system("cls");
 	menu();
 }
+//Çýkýþlar
 void cikis_goruntu(){
 	system("cls");
     system("color E"); 
@@ -527,19 +557,65 @@ void cikis_goruntu(){
     printf("%c",0XBC);
     
     
-    char karakter[2];
+  
+}
+void cikis_ana(){
+	setlocale(LC_ALL,"C");
+	cikis_goruntu();
+  char karakter[2];
     scanf("%s",karakter);
     int sayi = atoi(karakter);
 	switch(sayi)
 	{
 		case 1:
-			printf("");
+			don();
 			break;
 		case 2:
 			don();
 			break;
 		case 3:
-			printf("");
+			exit(0);
+			break;		
+	}
+}
+void cikis_hesap(){
+setlocale(LC_ALL,"C");
+	cikis_goruntu();
+  char karakter[2];
+    scanf("%s",karakter);
+    int sayi = atoi(karakter);
+	switch(sayi)
+	{
+		case 1:
+			{
+		system("cls");
+			hesapmakinesi_menusu();
+			break;	}
+		case 2:
+			don();
+			break;
+		case 3:
+			exit(0);
+			break;		
+	}
+
+}
+void cikis_sekil(){
+setlocale(LC_ALL,"C");
+	cikis_goruntu();
+  char karakter[2];
+    scanf("%s",karakter);
+    int sayi = atoi(karakter);
+	switch(sayi)
+	{
+		case 1:
+		sekil_menu();
+			break;
+		case 2:
+			don();
+			break;
+		case 3:
+			exit(0);
 			break;		
 	}
 }
@@ -558,10 +634,10 @@ void yildiz1(){
 	scanf("%i",&a);
 	system("cls");
 	yildiz(a);
-	setlocale(LC_ALL,"C");
 	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	setlocale(LC_ALL,"C");
     cikis=getch();
-    if(cikis=='C' || cikis=='c'){cikis_goruntu();}
+    if(cikis=='C' || cikis=='c'){cikis_sekil();}
     else{system("cls");yildiz1();}
 }
 void kare1(){
@@ -584,8 +660,337 @@ void dikucgen1(){
 	printf("Üçgenin büyüklüðünü giriniz:");
 	setlocale(LC_ALL,"C");
 	scanf("%i",&buyuk);
-	dikucgen1(buyuk);
+	dikucgen(buyuk);
 }
 // ü - 
 // i - 0x89
 
+
+
+
+void toplam(){
+	int sayi1,sayi2;
+	printf("1.Sayýyý Girin:");
+	scanf("%d",&sayi1);
+	printf("2.Sayýyý Girin:");
+	scanf("%d",&sayi2);
+	system("cls");printf("**************\n");printf("%d+%d=%d",sayi1,sayi2,sayi1+sayi2);printf("\n**************");
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");toplam();}
+}
+void cikar(){
+	int sayi1,sayi2;
+	printf("1.Sayýyý Girin:");
+	scanf("%d",&sayi1);
+	printf("2.Sayýyý Girin:");
+	scanf("%d",&sayi2);
+	system("cls");printf("**************\n");printf("%d-%d=%d",sayi1,sayi2,sayi1-sayi2);printf("\n**************");
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");cikar();}
+}
+void bol(){
+	int sayi1,sayi2;
+	printf("1.Sayýyý Girin:");
+	scanf("%d",&sayi1);
+	printf("2.Sayýyý Girin:");
+	scanf("%d",&sayi2);
+	system("cls");printf("**************\n");printf("%d/%d=%f",sayi1,sayi2,(float)sayi1/sayi2);printf("\n**************");
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");bol();}
+}
+void carp(){
+	int sayi1,sayi2;
+	printf("1.Sayýyý Girin:");
+	scanf("%d",&sayi1);
+	printf("2.Sayýyý Girin:");
+	scanf("%d",&sayi2);
+	system("cls");printf("**************\n");printf("%d.%d=%d",sayi1,sayi2,sayi1*sayi2);printf("\n**************");
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");carp();}
+}
+void ebob(){
+	int sayi1,sayi2,adim=0,ebobsay;
+	printf("1.Sayýyý Girin:");
+	scanf("%d",&sayi1);
+	printf("2.Sayýyý Girin:");
+	scanf("%d",&sayi2);
+	for(adim=sayi1*sayi2;adim>=1;adim--){
+	if(sayi1%adim==0&&sayi2%adim==0){ebobsay=adim;break;}}
+	if(ebobsay!=1)printf("%d ve %d sayýlarýnýn Ebobu=%d",sayi1,sayi2,adim);
+	else printf("Sayýlarýn Ebobu Yoktur.");
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");ebob();}
+	
+}
+void ekok(){
+	int sayi1,sayi2,adim,ekoksay;
+	printf("1.Sayýyý Girin:");
+	scanf("%d",&sayi1);
+	printf("2.Sayýyý Girin:");
+	scanf("%d",&sayi2);
+	for(adim=1;adim<sayi1*sayi2;adim++){
+	if(adim%sayi1==0&&adim%sayi2==0){ekoksay=adim;break;}}
+	if(ekoksay!=sayi1*sayi2) printf("%d ve %d sayýlarýnýn Ekoku=%d",sayi1,sayi2,adim);
+	else printf("Sayilarin EKOKU Yoktur.");
+	
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");ekok();}
+}
+void n_ussu(){
+	int sayi,ussu,yenisayi,ussuilk;
+	printf("Sayýyý Girin:");
+	scanf("%d",&sayi);
+	yenisayi=sayi;
+	printf("Üssü Girin:");
+	scanf("%d",&ussu);
+	ussuilk=ussu;
+	do {ussu--;yenisayi=sayi*yenisayi;
+} while(ussu>1);
+printf("%d Sayýsýnýn %d Üstü = %d",sayi,ussuilk,yenisayi);
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");n_ussu();}
+}
+void faiz(){
+	float para,faizoran;
+	int ay,ilkay;
+	char secim;
+	printf("Para Miktarýnýzý Girin:");
+	scanf("%f",&para);
+	printf("Aylýk Faiz Oranýnýzý Girin:");
+	scanf("%f",&faizoran);
+	printf("Kac Aylýk Faize Yatýracaksýn:");
+	scanf("%d",&ay);
+	ilkay=ay;
+	faizoran=(float)faizoran/100;
+	while(ay>0){
+		para+=(float)para*faizoran;
+		ay--;
+	}
+	printf("%d Ay Sonra Para Miktarýn:%f Olacak.",ilkay,para);
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");faiz();}
+}
+void faktoriyel(){
+	long long sayi,yenisayi;
+	printf("Sayýnýzý Girin:");
+	scanf("%lld",&sayi);
+	yenisayi=sayi--;
+	while(sayi>1){
+		yenisayi=yenisayi*sayi;
+		sayi--;
+	}
+	printf("Faktöriyelin Sonucu = %lld",yenisayi);
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");faktoriyel();}
+}
+void karekok_bulma(){
+	int sayi,adim;
+	printf("Karekökü alýnacak bir sayý giriniz:");
+	scanf("%d",&sayi);
+	for(adim=1;10000>adim;adim++){
+		if(adim*adim==sayi){printf("%d Sayýsýnýn Karekökü = %d",sayi,adim);break;}
+		}
+		if (adim*adim!=sayi)printf("\a%d Sayýsýnýn Karekökü Yok.",sayi);
+	printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+	cikis=getch();
+	if(cikis=='C' || cikis=='c'){cikis_hesap();}
+	else{system("cls");karekok_bulma();}
+}
+void hesapmakinesi_menusu()
+{
+	system("color B"); 
+    setlocale(LC_ALL,"C");
+    int i=0,a=0;
+    //BAÞLA
+    printf("%c",0xC9);//BAÞLA ÜST
+    for(i=0;i< 35;i++)  printf("%c",0xCD); 
+    printf("%c\n",0XBB); // SON ÜST
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("HESAP MAKÝNESÝ  ");
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+
+    setlocale(LC_ALL,"C");
+    printf("%c",0xCC);
+    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD);
+    printf("%c",0xB9);
+    printf("\n");
+    for(a=0;a<12;a++){//Menu Büyüklük Ayarý
+    if(a == 0)   {
+        printf("%c",0XBA);
+            for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+            setlocale(LC_ALL,"Turkish");
+                printf("1.Toplama       ");
+            setlocale(LC_ALL,"C");
+            for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+     else if(a==1)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("2.Çýkarma       ",0xfd);
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }else if(a==2)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("3.Bölme         "); 
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+     else if(a == 3)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("4.Çarpma        ",0xc7);
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+          else if(a == 4)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("5.EBOB          ");
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+          else if(a == 5)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("6.EKOK          ",0xc7);
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+          else if(a == 6)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("7.N Üssünü Bulma",0xc7);
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+          else if(a == 7)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("8.Faiz Hesabý   ",0xc7);
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+          else if(a == 8)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("9.Faktöriyel Al ",0xc7);
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+          else if(a == 9)
+    {
+        printf("%c",0XBA);
+        for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("10.Karekök Bulma",0xc7);
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+     else if(a==11)
+    {
+        printf("%c",0XBA);
+            for(i=0;i< 5;i++)   printf(" ");    //ORTA ALT
+            setlocale(LC_ALL,"Turkish");
+                printf(" Çýkýþ Ýçin C'ye basýnýz  ");
+            setlocale(LC_ALL,"C");
+            for(i=0;i< 4;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+    }
+     else {
+    printf("%c",0XBA);
+        for(i=0;i< 35;i++)  printf(" ");    //ORTA ALT
+    printf("%c",0XBA);
+    printf("\n");   
+    }  
+	}
+        //ALT
+    printf("%c",0XC8);
+    for(i=0;i< 35;i++){
+    printf("%c",0xCD);}
+    printf("%c",0XBC);
+	hesapmakinesi();}
+
+void hesapmakinesi(){
+	setlocale(LC_ALL,"Turkish");
+    char islem[2];
+	printf("\nÝþlem Giriniz:");
+	scanf("%s",&islem);
+	int sayi = atoi(islem);
+	if(islem[0]=='C' || islem[0]=='c'){cikis_ana();}//buraya cikis menusu gelecek
+    else{
+    switch(sayi) {
+    case 1:system("cls");toplam();break;
+	case 2:system("cls");cikar();break;
+	case 3:system("cls");bol();break;
+	case 4:system("cls");carp();break;
+	case 5:system("cls");ebob();break;
+	case 6:system("cls");ekok();break;
+	case 7:system("cls");n_ussu();break;
+	case 8:system("cls");faiz();break;
+	case 9:system("cls");faktoriyel();break;
+	case 10:system("cls");karekok_bulma();break;
+	default:printf("\a\nHATA:1 ile 10 arasýnda bir sayý tuþlayin !!");hesapmakinesi();
+}
+}
+}
