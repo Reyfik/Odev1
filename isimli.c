@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
-
+//Deneme
 void menu();
 void it(int sayi);
 void hesapmakinesimenu();
@@ -26,10 +26,10 @@ void kare1();
 void kumsaati1();
 void dikucgen1();
 void yildiz1();
-
+//
 int j,a,i,b,c;
 char cikis;
-
+//
 main(){
 	menu();
 }
