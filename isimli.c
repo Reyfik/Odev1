@@ -22,6 +22,8 @@ void yildiz(int buyukluk);
 void daire(int buyukluk);
 void kare(int buyukluk);
 void don();
+void fibonacci();
+void fiboislem();
 
 void cikis_ana();
 void kare1();
@@ -154,7 +156,10 @@ void menu(){
 			}
     		break;
     	case 2:
-    		printf("Python daydým %20 deyim ...");
+    		{
+    			system("cls");
+    			fibonacci();
+			}
     		break;
     	case 3:
     		denklem_cozme();
@@ -405,16 +410,20 @@ for(a= 0;a<buyukluk;a++){
 	}
 //Alt Kýsým
 	for(j=0;j<buyukluk;j++) {//Boþluk
-for(c = 0;c < buyukluk-say;c++)	printf(" ");	
+for(c = 0;c < buyukluk-say-1;c++)	printf(" ");
+if(j!=0)printf("*");	
+
 for(c= 0;c < buyukluk;c++) {
 printf("%c",ters[c]);}
-for(c = 0;c<say;c++){
+if(j!=0) printf(" ");
+for(c = 0;c<say-1;c++){
 	printf("  ");
 }
 say++;
 for(c = 0;c < buyukluk;c++)	{
 	printf("%c",ucgen[c]);
 }
+printf("*");
 printf("\n");	
 ucgen[j] = ' ';
 ters[buyukluk-j-1] = ' ';
@@ -646,7 +655,7 @@ void yildiz1(){
 }
 void kare1(){
 	setlocale(LC_ALL,"Turkish");
-	printf("Kum saatinin büyüklüðünü giriniz:");
+	printf("Dikdörtgenin büyüklüðünü giriniz:");
 	setlocale(LC_ALL,"C");
 	scanf("%i",&buyuk);
 	system("cls");
@@ -1119,7 +1128,7 @@ ikincidenklem(){
     printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
     cikis=getch();
     if(cikis=='C' || cikis=='c'){cikis_ana1();}
-    else{system("cls");denklem_cozme();}
+    else{system("cls");ikincidenklem();}
     setlocale(LC_ALL,"C");
 }
 cikis_ana1(){
@@ -1216,4 +1225,33 @@ void denklem_menu(){
     denklem_cozme();
 }
 
-
+void fibonacci(){
+    char cikis;
+    setlocale(LC_ALL,"Turkish");
+    long long terim,adim,sayi1=0,sayi2=1,sonraki;
+    printf("Kaç Terimli Fibonacci Ýstersiniz:");
+    scanf("%lld",&terim);
+    for(adim=0;adim<terim;adim++) {
+        if(adim<=1)sonraki=adim;
+        else{sonraki=sayi1+sayi2;
+        sayi1=sayi2;
+        sayi2=sonraki;
+        }
+    printf("%lld\n",sonraki);
+}
+printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+    cikis=getch();
+    if(cikis=='C' || cikis=='c'){cikis_fiboislem();}
+    else{system("cls");fibonacci();}
+}
+cikis_fiboislem(){
+	setlocale(LC_ALL,"C");
+int anacikisfibo;
+cikis_goruntu();
+scanf("%d",&anacikisfibo);
+switch(anacikisfibo){
+case 1:system("cls");menu();break;
+case 2:system("cls");menu();break;
+case 3:system("cls");exit(0);break;
+}
+}
