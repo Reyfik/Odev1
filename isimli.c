@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <math.h>
 
 void menu();
 void it(int sayi);
@@ -47,6 +48,9 @@ void cikis_goruntu();
 void cikis_sekil();
 void cikis_hesap();
 
+
+void denklem_cozme();
+void denklem_menu();
 
 int j,a,i,b,c;
 char cikis;
@@ -153,7 +157,7 @@ void menu(){
     		printf("Python daydým %20 deyim ...");
     		break;
     	case 3:
-    		printf("Ayýp Birþey  ... ");
+    		denklem_cozme();
     		break;
     	case 4:
     		sekil_menu();
@@ -814,8 +818,7 @@ void karekok_bulma(){
 	if(cikis=='C' || cikis=='c'){cikis_hesap();}
 	else{system("cls");karekok_bulma();}
 }
-void hesapmakinesi_menusu()
-{
+void hesapmakinesi_menusu(){
 	system("color B"); 
     setlocale(LC_ALL,"C");
     int i=0,a=0;
@@ -994,3 +997,223 @@ void hesapmakinesi(){
 }
 }
 }
+
+
+
+void denklem_cozme() {
+    
+    char secim[2];
+     int a,b,c,d,e,f,g,delta,denklem;
+
+     setlocale(LC_ALL,"Turkish");
+    printf("\nSeçeceðiniz iþlem=");
+scanf("%c",&secim);
+int sayi = atoi(secim); 
+setlocale(LC_ALL,"C");
+if(secim[0]=='c' || secim[0]=='C'){
+cikis_ana();}
+    
+else{
+    switch(sayi) 
+ {
+      case 1 : {
+    denklem_yazma();
+    break;
+}
+    case 2 : {
+    birincidenklem();
+    break;
+}
+   case 3 :
+ikincidenklem();
+break;  
+
+
+default:{
+
+setlocale(LC_ALL,"Turkish");
+system("cls");
+denklem_menu();
+printf("\a\nLÜTFEN 1 ÝLE 3 ARASINDA DEÐER GÝRÝNÝZ.\n\n");
+     break;}
+}
+}
+}
+
+denklem_yazma(){
+     int a,b,c;
+    system("cls");
+    setlocale(LC_ALL,"Turkish");
+    printf("\n\nVarsayýlan 2.dereceden denklemimiz ax²+bx+c Þeklindedir.\nÝstediðiniz denklemi yazdyrmak için seçcenekler giriniz\n");
+    printf("x²'nin katsayýsýný giriniz="); scanf("%d",&a);
+    printf("x'in katsayýsýný giriniz="); scanf("%d",&b);
+    printf("c'nin katsayýsýný giriniz="); scanf("%d",&c);
+    printf("Ýkinci Dereceden Denklemimiz : %dx²+%dx+%d",a,b,c);
+    printf("\nÇýkýþ için C, Yeni Deger Ýçin Herhangi bir tuþa basin");
+    cikis=getch();
+    if(cikis=='C' || cikis=='c'){cikis_ana1();}
+    else{system("cls");denklem_yazma();}
+    setlocale(LC_ALL,"C");
+}
+birincidenklem(){
+    system("cls");
+    setlocale(LC_ALL,"Turkish");
+    printf("Denklem ax = b þeklindedir.\nLütfen a'yý giriniz:'");
+    float a,b;
+    scanf("%i",&a);
+    printf("\nLütfen b'yi giriniz:'");
+    scanf("%i",&b);
+    float kok = a/b;
+    printf("Bu denklemin kökü %f dir.",kok);
+    printf("\nÇýkýþ Ýçin C, Yeni deðerler için herhangi bir tuþa basýnýz.");
+    cikis=getch();
+    switch (cikis)
+    {
+	case 'c':{
+		cikis_ana1();
+	break;	}
+	case'C':
+		{
+			cikis_ana1();
+			break;
+		}
+	default:{
+		system("cls");
+		birincidenklem();
+		break;
+	}
+    }
+    
+    setlocale(LC_ALL,"C");
+    
+}
+ikincidenklem(){
+    system("cls");
+        double x1,x2;
+        int a,b,c,delta;
+        setlocale(LC_ALL,"Turkish");
+    printf("Varsayýlan 2.dereceden denklemimiz ax²+bx+c Þeklindedir.Bu denklemin köklerini\naþaðýdaki sorulara verilen cevaplarla bulunmaktadýr.\n");
+    printf("x²'nin katsayýsýný giriniz="); scanf("%d",&a);
+    printf("x'in katsayýsýný giriniz="); scanf("%d",&b);
+    printf("c'nin katsayýsýný giriniz="); scanf("%d",&c);
+    printf("Ykinci Dereceden Denklemimiz : %dx²+%dx+%d",a,b,c);
+    delta = b*b - 4*a*c;
+    printf("\nDelta= %d", delta);
+
+  if (delta == 0)
+    {
+        x1 = -b / 2*a;
+        printf("\n\ndelta = 0 kökler eþit kök = %d ", x1);
+    }
+
+    else if ( delta < 0 )
+        printf("\n\ndelta < 0 denklemin kökleri sanal köktür. Reel kök bulunamaz. ");
+
+    else if( delta > 0)
+    {
+        x1 = (-b +(sqrt(delta))) / (2*a);
+        x2 = (-b -(sqrt(delta))) / (2*a);
+        printf("\n\n Denklemin ilk kökü %.2f ve denklemin ikinci kökü %.2f \n\n", x1,x2);
+        
+    }
+    printf("\nÇýkýþ Ýçin C, Yeni Deðer Ýçin Herhangi bir tuþa basýn");
+    cikis=getch();
+    if(cikis=='C' || cikis=='c'){cikis_ana1();}
+    else{system("cls");denklem_cozme();}
+    setlocale(LC_ALL,"C");
+}
+cikis_ana1(){
+setlocale(LC_ALL,"C");
+cikis_goruntu();
+
+int islem;
+scanf("%d",&islem);
+switch(islem){
+    case 1:denklem_cozme(); break;
+    case 2:don();
+    case 3:exit(0);
+}
+}
+void denklem_menu(){
+        system("color E"); 
+    int i=0,a=0;
+    setlocale(LC_ALL,"C");
+    //BASLA
+    printf("%c",0xC9);//BASLA ÜST
+
+    for(i=0;i< 35;i++)  printf("%c",0xCD); 
+    printf("%c\n",0XBB); // SON ÜST
+    printf("%c",0XBA);
+    for(i=0;i< 10;i++)  printf(" ");    //ORTA ALT
+    setlocale(LC_ALL,"Turkish");
+    printf("DENKLEM ÇÖZME   ");
+    setlocale(LC_ALL,"C");
+    for(i=0;i< 9;i++)   printf(" ");
+    printf("%c",0XBA);
+    printf("\n");
+    printf("%c",0xCC);
+    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD,0xCD);
+    printf("%c",0xB9);
+    printf("\n");
+    
+    for(a=0;a<10;a++){//Menu Büyüklük Ayari
+    if(a == 0)   {
+        printf("%c",0XBA);
+            for(i=0;i< 2;i++)  printf(" ");    //ORTA ALT
+            setlocale(LC_ALL,"Turkish");
+                printf("1- Denklem Yazma");
+            setlocale(LC_ALL,"C");
+            for(i=0;i< 17;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+     }
+     else if(a==1)
+     {
+        printf("%c",0XBA);
+        for(i=0;i< 2;i++)  printf(" "); 
+                setlocale(LC_ALL,"Turkish");
+   //ORTA ALT
+        printf("2- 1.Dereceden Kök Bulma");
+         setlocale(LC_ALL,"C");
+        for(i=0;i< 9;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+     }else if(a==2)
+     {
+        printf("%c",0XBA);
+        for(i=0;i< 2;i++)  printf(" ");    //ORTA ALT
+        setlocale(LC_ALL,"Turkish");
+        printf("3- 2.Dereceden Kök Bulma ",0x87,0x94); 
+        setlocale(LC_ALL,"C");
+        for(i=0;i< 8;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+     }
+     
+     else if(a==9)
+     {
+        printf("%c",0XBA);
+            for(i=0;i< 5;i++)   printf(" ");    //ORTA ALT
+            setlocale(LC_ALL,"Turkish");
+                printf("Çýkýþ Ýçin C'ye basýnýz.  ");
+            setlocale(LC_ALL,"C");
+            for(i=0;i< 4;i++)   printf(" ");
+        printf("%c",0XBA);
+        printf("\n");
+     }
+     else {
+    printf("%c",0XBA);
+        for(i=0;i< 35;i++)  printf(" ");    //ORTA ALT
+    printf("%c",0XBA);
+    printf("\n");   
+     }  
+	 }
+        //ALT
+    printf("%c",0XC8);
+    for(i=0;i< 35;i++)  {
+    printf("%c",0xCD); }
+    printf("%c",0XBC);
+    denklem_cozme();
+}
+
+
