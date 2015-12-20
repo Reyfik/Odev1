@@ -171,7 +171,11 @@ void menu(){
     		sekil_menu();
     		break;
     	default:
-    		
+    		system("cls");
+    		setlocale(LC_ALL,"Turkish");
+    		printf("\n\a1 ile 4 arasýnda bir sayý giriniz.\n");
+    		setlocale(LC_ALL,"C");
+    		menu();
     		break;
 	}    
 		}
@@ -297,6 +301,7 @@ void sekil_menu(){
     		dikucgen1();
     		break;
     	default:
+    		sekil_menu();
     		break;
 	}    
 }
