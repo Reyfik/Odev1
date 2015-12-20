@@ -138,6 +138,9 @@ void menu(){
     for(i=0;i< 35;i++)  {
     printf("%c",0xCD); }
     printf("%c",0XBC);
+     setlocale(LC_ALL,"Turkish");
+    printf("\nBir Ýþlem Giriniz:");
+    setlocale(LC_ALL,"C");
     char karakter[2];
     scanf("%s",&karakter);
     
@@ -174,6 +177,7 @@ void menu(){
 		}
 }
 void sekil_menu(){
+	system("COLOR D");
 	system("cls");
     setlocale(LC_ALL,"unicode");
     int i=0,a=0;
@@ -269,6 +273,9 @@ void sekil_menu(){
     for(i=0;i< 35;i++)  {
     printf("%c",0xCD); }
     printf("%c",0XBC);
+    setlocale(LC_ALL,"Turkish");
+    printf("\nBir Ýþlem Giriniz:");
+    setlocale(LC_ALL,"C");
     char karakter[2];
     scanf("%s",&karakter);
     int sayi = atoi(karakter);
@@ -503,7 +510,7 @@ void don(){
 //Çýkýþlar
 void cikis_goruntu(){
 	system("cls");
-    system("color E"); 
+    system("color C"); 
     setlocale(LC_ALL,"unicode");
     int i=0,a=0;
     //BAÞLA
@@ -567,7 +574,10 @@ void cikis_goruntu(){
     printf("%c",0XC8);
     for(i=0;i< 35;i++){
     printf("%c",0xCD);}
-    printf("%c",0XBC);
+    printf("%c\n",0XBC);
+    setlocale(LC_ALL,"Turkish");
+    printf("Bir Ýþlem Giriniz:");
+    setlocale(LC_ALL,"C");
     
     
   
@@ -1011,40 +1021,37 @@ void hesapmakinesi(){
 
 void denklem_cozme() {
     
-    char secim[2];
+    char secim1[2];
      int a,b,c,d,e,f,g,delta,denklem;
 
      setlocale(LC_ALL,"Turkish");
     printf("\nSeçeceðiniz iþlem=");
-scanf("%c",&secim);
-int sayi = atoi(secim); 
+scanf("%c",&secim1);
+int sayi = atoi(secim1); 
 setlocale(LC_ALL,"C");
-if(secim[0]=='c' || secim[0]=='C'){
+if(secim1[0]=='c' || secim1[0]=='C'){
 cikis_ana();}
-    
 else{
     switch(sayi) 
  {
-      case 1 : {
+      case 1: {
     denklem_yazma();
     break;
 }
-    case 2 : {
+    case 2: {
     birincidenklem();
     break;
 }
-   case 3 :
-ikincidenklem();
-break;  
+   case 3:
+	ikincidenklem();
+	break;  
 
 
 default:{
-
-setlocale(LC_ALL,"Turkish");
 system("cls");
 denklem_menu();
-printf("\a\nLÜTFEN 1 ÝLE 3 ARASINDA DEÐER GÝRÝNÝZ.\n\n");
-     break;}
+
+break;}
 }
 }
 }
@@ -1072,7 +1079,8 @@ birincidenklem(){
     scanf("%i",&a);
     printf("\nLütfen b'yi giriniz:'");
     scanf("%i",&b);
-    float kok = a/b;
+    float kok = b/a
+	;
     printf("Bu denklemin kökü %f dir.",kok);
     printf("\nÇýkýþ Ýçin C, Yeni deðerler için herhangi bir tuþa basýnýz.");
     cikis=getch();
@@ -1144,7 +1152,7 @@ switch(islem){
 }
 }
 void denklem_menu(){
-        system("color E"); 
+        system("color A"); 
     int i=0,a=0;
     setlocale(LC_ALL,"C");
     //BASLA
@@ -1226,6 +1234,7 @@ void denklem_menu(){
 }
 
 void fibonacci(){
+	system("COLOR F");
     char cikis;
     setlocale(LC_ALL,"Turkish");
     long long terim,adim,sayi1=0,sayi2=1,sonraki;
